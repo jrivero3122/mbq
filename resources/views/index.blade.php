@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-<section class="home-section home-parallax home-fade home-full-height bg-dark-30" data-background="assets/images/installer1.jpg">
+<section class="home-section parallax-bg home-fade home-full-height bg-dark-30" data-background="assets/images/installer1.jpg">
   <div class="titan-caption">
     <div class="caption-content">
       <div class="font-alt mb-30 titan-title-size-1">

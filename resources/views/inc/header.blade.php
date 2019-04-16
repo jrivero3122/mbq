@@ -6,7 +6,8 @@
             </div>
             <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-left">
-                <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Home</a>
+                <li><a class="" href="/">Home</a>
+                {{-- <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Home</a>
                 <ul class="dropdown-menu">
                     <li><a href="index_mp_fullscreen_video_background.html">Default</a></li>
                     <li><a href="index_op_fullscreen_gradient_overlay.html">One Page</a></li>
@@ -18,7 +19,8 @@
                     <li><a href="index_photography.html">Photography</a></li>
                     <li><a href="index_shop.html">Shop</a></li>
                 </ul>
-                </li>
+                </li> --}}
+                <li><a class="" href="/aboutus">About Us</a>
             </ul>    
             <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
@@ -42,14 +44,14 @@
                             {{-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> --}}
                             <ul class="dropdown-menu">
                                 <li>
-                                <a class="dropdown-toggle" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                                    <a class="" href="/profiles">My Profile</a>
                                 </li>
                                 <li>
-                                <a class="dropdown-toggle" href="/profiles">My Profile</a>
+                                    <a class="" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                        document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
                                 </li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf

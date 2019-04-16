@@ -69,6 +69,10 @@
                             <label for="exteriorRate">Add Value for Exterior Tile</label>
                             <input type="text" class="form-control" id="exteriorRate" name="exteriorRate" value="{{$profile->rate ? $profile->rate->exterior : ''}}">
                         </div>
+                        <div class="form-group">
+                            <label for="exteriorRate">Add Value for Exterior Tile</label>
+                            <input type="text" class="form-control" id="exteriorRate" name="exteriorRate" value="{{$profile->rate ? $profile->rate->exterior : ''}}">
+                        </div>
                     </div>
                 </div>
             </div>

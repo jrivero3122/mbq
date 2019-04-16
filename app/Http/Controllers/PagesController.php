@@ -53,6 +53,8 @@ class PagesController extends Controller
             $object->id = $user->id;
             $object->name = $user->name;
             $object->lastName = $user->last_name;
+            $object->email = $user->email;
+            $object->movil = $user->movil;
             $object->rateBasic = $priceBasic;
             $object->rateBathroom = $priceBathroom;
             $object->rateExterior = $priceExterior;

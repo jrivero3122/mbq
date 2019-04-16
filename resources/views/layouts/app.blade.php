@@ -16,9 +16,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
-    {{-- Boostrap Style --}}
-    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
-
+    
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('css/cover.css') }}" rel="stylesheet"> --}}
@@ -39,7 +37,12 @@
     <link href="{{  asset('assets/lib/simple-text-rotator/simpletextrotator.css') }}" rel="stylesheet">
     <!-- Main stylesheet and color file-->
     <link href="{{  asset('assets/css/style.css') }}" rel="stylesheet">
+    <link href="{{  asset('assets/css/mystyle.css') }}" rel="stylesheet">
     <link id="color-scheme" href="{{  asset('assets/css/colors/default.css') }}" rel="stylesheet">
+
+    {{-- Boostrap Style --}}
+    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
+
 
 
 </head>
