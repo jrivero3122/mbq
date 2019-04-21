@@ -2,7 +2,7 @@
 @section('content')
 
 <section class="bg-dark-30 module p-0" style="padding: 0px" data-background="assets/images/installer1.jpg">
-  <div class="titan-caption" style="margin-top: 50px; margin-bottom:-50px">
+  <div class="titan-caption" style="margin-top: 50px; margin-bottom:-50px; padding-bottom:25px">
     <div class="caption-content">
       <div class="font-alt mb-30 titan-title-size-1">
           <div class="container">
@@ -10,48 +10,7 @@
                 <div class="col-sm-8 col-sm-offset-2">
                   <h4 class="font-alt mb-0">Tile Quotation</h4>
                   <hr class="divider-w mt-10 mb-20">
-                  <form class="form" role="form" action="/search" method="GET">
-                    <div class="row">
-                      <div class="form-group col-lg-3">
-                        <select id="inputState" class="form-control" name="heightTile">
-                          <option selected>Height...</option>
-                          <option value="12">12</option>
-                          <option value="24">24</option>
-                          <option value="36">36</option>
-                          <option value="48">48</option>
-                        </select>
-                      </div>
-                      <div class="form-group col-lg-1 text-center">
-                        <p>X</p>
-                      </div>
-                      <div class="form-group col-lg-3">
-                        <select id="inputState" class="form-control" name="widthTile">
-                          <option selected>Width...</option>
-                          <option value="12">12</option>
-                          <option value="24">24</option>
-                          <option value="36">36</option>
-                          <option value="48">48</option>
-                        </select>
-                      </div>
-                      <div class="form-group col-lg-2">
-                        <input type="text" class="form-control" id="inputPassword4" placeholder="Sqf" name="sqfTile">
-                      </div>
-                      <div class="form-group col-lg-3">
-                        <select id="inputState" class="form-control" name="placeInstall">
-                          <option selected>At...</option>
-                          <option value="bathroom">Bathroom</option>
-                          <option value="exterior">Exterior</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col text-center">
-                        <button type="submit" class="btn btn-dark">Quote</button>
-                      </div>
-                    </div>
-                    </div>
-                  </form>
+                      @include('inc.searchform')
                 </div>
               </div>
       </div>
@@ -75,16 +34,13 @@
         @foreach ($qUsers as $qUser)
           <div class="col-sm-6 col-md-3 col-lg-3">
             <div class="post shadow-sm">
-              <div class="post-thumbnail"><a href="#"><img src="assets/images/post-1.jpg" alt="Blog-post Thumbnail"/></a></div>
+              <div class="post-thumbnail"><a href="#"><img src="/storage/cover_image/{{$qUser->cover_image}}" alt="Blog-post Thumbnail"/></a></div>
               <div class="post-header font-alt" style="margin: -8px 5px 10px">
                 <h2 class="post-title"><a href="#">{{$qUser->name}} {{$qUser->lastName}}</a></h2>
                 <div class="post-meta">Ph: {{$qUser->movil}}</div>
                 <div class="post-meta">{{$qUser->email}}</div>
                 <div class="text-right"><h3>$ {{$qUser->quotation}}</h3></div>
               </div>
-              {{-- <div class="post-entry">
-                <h3>$ {{$qUser->quotation}}</h3>
-              </div> --}}
             </div>
           </div>
         @endforeach
@@ -92,17 +48,21 @@
   </div>
   <div class="col-sm-3">
       <div class="price-table font-alt">
-        <h4>Light</h4>
+        <h4>Important Info</h4>
         <div class="borderline"></div>
-        <p class="price"><span>$</span>9
-        </p>
+
+        {{-- <p class="price"><span>$</span>9
+        </p> --}}
+        <b>{{$qUser->heightTile}} x {{$qUser->widthTile}} @if ($qUser->placeInstall!="At...")
+            in {{$qUser->placeInstall}}
+        @endif  <b>
         <ul class="price-details">
-          <li>Free Support</li>
-          <li>15 Demos Included</li>
-          <li><span>Newsletter</span></li>
+          {{-- <li>Free Support</li> --}}
+          <li># of pieces: {{$qUser->numberOfPiece}}</li> 
+          {{-- <li><span>Newsletter</span></li>
           <li><span>Working Contact Form</span></li>
           <li><span>Unlimited Domains</span></li>
-        </ul><a class="btn btn-d btn-round" href="#">Sign Up</a>
+        </ul><a class="btn btn-d btn-round" href="#">Sign Up</a> --}}
       </div>
 </div>
 </section>

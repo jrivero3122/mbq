@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 use app\Rate;
+use app\Project;
 
 
 class User extends Authenticatable
@@ -43,6 +44,11 @@ class User extends Authenticatable
     public function rate()
     {
         return $this->hasOne('App\Rate');
+    }
+
+    public function project()
+    {
+        return $this->hasMany('App\Project');
     }
 
     

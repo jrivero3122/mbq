@@ -52,7 +52,8 @@
             <div class="loader">Loading...</div>
         </div>
     @include('inc.header')
-    @yield('content')  
+    @yield('content') 
+    @include('inc.footer') 
 
 
 {{-- Boostrap JS     --}}

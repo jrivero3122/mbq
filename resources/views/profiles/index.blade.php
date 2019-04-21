@@ -1,12 +1,13 @@
 @extends('layouts.app')
 @section('content')
 
+@if ($profile)
 <section class="module">
     <div class="container">
         <div class="row multi-columns-row post-columns">
         <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="team-item">
-                <div class="team-image"><img src="assets/images/profile1.jpg" alt="Member Photo"/>
+            <div class="team-image"><img src="/storage/cover_image/{{$profile->cover_image}}" alt="Member Photo"/>
                     <div class="team-detail">
                     <h5 class="font-alt">Hi all</h5>
                     <p class="font-serif">{{$profile->description}}</p>
@@ -27,6 +28,8 @@
             <h6 class="font-alt"><span class="icon-tools-2"></span> Last Name: {{$profile->last_name}}</h6>
             <h6 class="font-alt"><span class="icon-tools-2"></span> Email: {{$profile->email}}</h6>
             <h6 class="font-alt"><span class="icon-tools-2"></span> Address: {{$profile->address}}</h6>
+            <h6 class="font-alt"><span class="icon-tools-2"></span> State: {{$profile->state}}</h6>
+            <h6 class="font-alt"><span class="icon-tools-2"></span> ZIP: {{$profile->zip}}</h6>
             <h6 class="font-alt"><span class="icon-tools-2"></span> Movil: {{$profile->movil}}</h6>
             <h6 class="font-alt"><span class="icon-tools-2"></span> About Me: {{$profile->description}}</h6>
         </div>
@@ -36,56 +39,17 @@
                 <h6 class="font-alt"><span class="icon-tools-2"></span> Basic: $ {{$profile->rate->basic}}</h6>
                 <h6 class="font-alt"><span class="icon-tools-2"></span> Add for bathroom: $ {{$profile->rate->bathroom}}</h6>
                 <h6 class="font-alt"><span class="icon-tools-2"></span> Add for big size: $ {{$profile->rate->bigsize}}</h6>
+                <h6 class="font-alt"><span class="icon-tools-2"></span> Add for kitchen: $ {{$profile->rate->kitchen}}</h6>
                 <h6 class="font-alt"><span class="icon-tools-2"></span> Add for exterior: $ {{$profile->rate->exterior}}</h6>
+                <h6 class="font-alt"><span class="icon-tools-2"></span> Add for porcelain: $ {{$profile->rate->porcelain}}</h6>
+                <h6 class="font-alt"><span class="icon-tools-2"></span> Add for ceramic: $ {{$profile->rate->ceramic}}</h6>
+                <h6 class="font-alt"><span class="icon-tools-2"></span> Add for mosaic: $ {{$profile->rate->mosaic}}</h6>
+                <h6 class="font-alt"><span class="icon-tools-2"></span> Add for glass: $ {{$profile->rate->glass}}</h6>
         </div>
         </div>
-</section>
-
-<div class="container p-5">
-
-  @if ($profile)
-    <div class="container">
-        <div class="row">
-            <div class="float-left text-center pr-5 pb-4">
-                <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" width="140" height="140" class="rounded-circle">
-                <div class="pt-2"> 
-                <a href="profiles/{{$profile->id}}/edit" class="btn btn-dark btn-sm">Edit profile</a>  
-                </div>  
-            </div>
-            <div class="mt-3">
-                <h1>{{$profile->name}} {{$profile->last_name}}</h1>
-                <small>{{$profile->email}}</small>             
-            </div>
-        </div>
-    </div>
-      <div class="container">
-          <div class="row">
-          <div class="col">
-              <div>
-                  <h1>Personal Info</h1>
-                  <div><b>Address:</b> {{$profile->address}}</div>
-                  <div><b>Movil: </b> {{$profile->movil}}</div>
-                  <div><b>About me:</b> {{$profile->description}}</div>
-              </div>
-          </div>
-          <div class="col">
-            <div>
-                <h1>My rates</h1>
-                <div><b>Basic:</b> {{$profile->rate->basic}}</div>
-                <div><b>Add for bathroom: </b> {{$profile->rate->bathroom}}</div>
-                <div><b>Add for big size:</b> {{$profile->rate->bigsize}}</div>
-                <div><b>Add for exterior:</b> {{$profile->rate->exterior}}</div>
-            </div>
-        </div>
-        </div>
-      </div>
-
-      
-        
-  @else
+    @else
       <p>No user</p>
-  @endif
-
-</div>
+    @endif
+</section>
     
 @endsection

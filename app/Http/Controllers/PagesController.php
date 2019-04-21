@@ -31,7 +31,7 @@ class PagesController extends Controller
         $widthTile = $request->input('widthTile');
         $heightTile = $request->input('heightTile');
         $sqfTile = $request->input('sqfTile');
-        $qtOfTile = $sqfTile / (($widthTile * $heightTile)*0.08);
+        $qtOfTile = $sqfTile / (($widthTile * $heightTile)/144);
         // $bathroom = $request->input('bathroom');
         // $exterior = $request->input('exterior');
         $placeInstall = $request->input('placeInstall');
@@ -47,6 +47,7 @@ class PagesController extends Controller
             $priceBathroom = ($placeInstall == 'bathroom') ? ($user->rate ? $user->rate->bathroom : 0) : 0;
             // $priceExterior = $exterior ? ($user->rate ? $user->rate->exterior : 0) : 0;
             $priceExterior = ($placeInstall == 'exterior') ? ($user->rate ? $user->rate->exterior : 0) : 0;
+            $priceKitchen = ($placeInstall == 'kitchen') ? ($user->rate ? $user->rate->kitchen : 0) : 0;
             $priceBigTile =  ($widthTile * $heightTile > 1000) ? ($user->rate ? $user->rate->bigsize : 0) : 0;
 
             $object = new stdClass();
@@ -55,11 +56,17 @@ class PagesController extends Controller
             $object->lastName = $user->last_name;
             $object->email = $user->email;
             $object->movil = $user->movil;
+            $object->cover_image = $user->cover_image;
             $object->rateBasic = $priceBasic;
             $object->rateBathroom = $priceBathroom;
+            $object->rateKitchen = $priceKitchen;
             $object->rateExterior = $priceExterior;
             $object->rateBigSize = $priceBigTile;
-            $object->quotation = ($priceBasic + $priceBathroom + $priceBigTile + $priceExterior) * $sqfTile ;
+            $object->quotation = ($priceBasic + $priceBathroom + $priceBigTile + $priceKitchen + $priceExterior) * $sqfTile ;
+            $object->numberOfPiece = round($qtOfTile);
+            $object->heightTile = $heightTile;
+            $object->widthTile = $widthTile;
+            $object->placeInstall = $placeInstall;
             // $price = $user->rate->basic * $sqfTile;
             array_push($qUsers , $object);
         }
